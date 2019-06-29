@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遍历</title>
+</head>
+<body>
+    <script>
+        var json = [
+            {
+                name: 'atone',
+                age: 19,
+                readNum: 100,
+                isHot: true    
+            },
+            {
+                name: 'tiny',
+                age: 20,
+                readNum: 50,
+                isHot: false    
+            },
+            {
+                name: 'jack',
+                age: 18,
+                readNum: 200,
+                isHot: true    
+            }
+        ]
+
+        //这几个遍历方法，都是对象点方法调用，这个方法里第一个参数传一个函数，第二个参数一般不需要，传了的话就是第一个参数函数里的this，函数的第一个参数是数组的值，第二个是数组的索引，这里的this没有特殊处理，都是指向window，
+        
+        //forEach 就是普通的for循环，一般是这样的，你获取到后台的json，然后这个数据里面属性的值得修饰一下，你就可以用这个方法，比如看我下面的代码，我把名字改了一下，这个方法返回值是undefiend，一般不用return语句
+        // var result = json.forEach(function (val, index) {
+        //     val.name = '^' + val.name + '^'
+        // }, 1) //比如这里传来一个1，那么函数里的this就是这个1，第二个参数一般不需要填
+        // console.log(result,json)
+
+        // filter 得写return语句，true的话就是返回数组符合条件的一项，比如下面的所写的，返回isHot为true的数据，你也可以想成是过滤。
+        // var filterJson = json.filter(function(val, index) {
+        //     return val.isHot
+        // })
+        // console.log(filterJson)
+        
+        //map 也得有返回值，返回值是你想要数组的每一项，比如下面所写的，json里的代码给的是年龄，但是你前端想显示出生的日期，然后你就自己定义属性，然后改值，比如json里的是name，你自己想属性是label，那么你就是简单的赋值就行，大概的用法就这样。
+        // var year = new Date().getFullYear();
+        // console.log(year)
+        // var mapJson = json.map(function (val, index) {
+        //     return {
+        //         label: val.name,
+        //         bornYear:  year - val.age,
+        //         readNum: val.readNum + 1000
+        //     }
+        // })
+        // console.log(mapJson)
+
+        //以上三个方法都是处理数组的方法，具体情况具体分析，用哪个，看项目需求，都是可以变通的
+    </script>
+</body>
+</html>
